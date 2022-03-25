@@ -12,7 +12,7 @@ namespace CodeWarsWeeksChallenge
 
         public string discription { get { return _discription; } }
 
-        //
+        // количество школ 
         private int _n;
 
         private int[] _schoolsNum;
@@ -47,16 +47,17 @@ namespace CodeWarsWeeksChallenge
             Console.WriteLine("кол-во школ?");
             if(Int32.TryParse(Console.ReadLine(), out _n))
             {
+                // обозначение номера школы
                 _schoolsNum = new int[_n];
+                // массив для определения пройденных мест
                 _schoolsPass = new bool[_n];
+                // общая стоимость поездки
                 _TravelPrice = 0;
 
-                for(int i = 0; i < _n; i++)
-                {
+                for(int i = 0; i < _n; i++)                
                     _schoolsNum[i] = i+1;
-                    _schoolsPass[i] = false;
-                }
 
+                // выбор начала пути
                 Random rnd = new Random();
                 int start = rnd.Next(0, _n - 1);
 
@@ -65,14 +66,18 @@ namespace CodeWarsWeeksChallenge
                 Console.WriteLine($"{res}");
             }            
         }
-
+        
+        //
         private double Travel(int current)
         {
+            // индекс текущей позиции
             _current = current;
+            // отмечаем текущее значение как пройденное
             _schoolsPass[_current] = true;
 
             Console.WriteLine($"start: {_current}");
 
+            //
             for (int k = 0; true; k++)
             {
                 if (_current == (int)(_n / 2))
@@ -84,23 +89,26 @@ namespace CodeWarsWeeksChallenge
                 {
                     if (_current < (int)(_n / 2))
                         {
-                        Console.WriteLine($"debug: _current = {_current}, ride: {_n - _current}");
-                        if (Ride(_n - _current))
-                        {
                             Console.WriteLine($"debug: _current = {_current}, ride: {_n - _current}");
-                            break;
-                        }
+                            if (Ride(_n - _current)){
+                                Console.WriteLine($"debug: _current = {_current}, ride: {_n - _current}");
+                                break;
+                            }
                         else { Console.WriteLine("i'm fuck up my programm");
                             
                         }
                     }
                     else
-                        {
-                            Console.WriteLine($"debug: _current = {_current}, ride: {_n - (_current + 1)}");
-                            if (Ride(_n - (_current + 1))){ break; } }
+                    {
+                        Console.WriteLine($"debug: _current = {_current}, ride: {_n - (_current + 1)}");
+                        if (Ride(_n - (_current + 1))){
+                            break;
+                        }
+                    }
                 }
             }
-
+            
+            // вывод отметок о прохождении пути
             for(int i = 0; i < _n; i++)
             {
                 Console.Write($"{_schoolsNum[i]}, ");
@@ -112,6 +120,7 @@ namespace CodeWarsWeeksChallenge
             return _TravelPrice;
         }
 
+        // подсчет стоимости билета из места i в место j 
         private double TicketPrice(int i, int j)
         {
             double res = 0;
@@ -121,11 +130,14 @@ namespace CodeWarsWeeksChallenge
             return res;
         }
 
+        // транзакция поездки
         private bool Ride(int next)
         {
             Console.WriteLine($"debug: {_current}");
+            // отмечаем текущее значение как пройденное
             _schoolsPass[_current] = true;
-
+            
+            
             if (next == _n)
                 next = _n - 1;
 
@@ -133,14 +145,13 @@ namespace CodeWarsWeeksChallenge
             {
                 return true;
             }                
-
+            
+            // добавляем стоимость поездки к общей стоимости поездки
             _TravelPrice += TicketPrice(_current, next - 1);
+            // меняем текущкее рассположение на новое
             _current = next;            
 
             return false;
         }
-
-        //private int 
-
     }
 }
