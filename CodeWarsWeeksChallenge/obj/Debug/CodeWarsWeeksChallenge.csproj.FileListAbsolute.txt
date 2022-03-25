@@ -1,7 +1,0 @@
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\bin\Debug\CodeWarsWeeksChalange.exe.config
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\bin\Debug\CodeWarsWeeksChalange.exe
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\bin\Debug\CodeWarsWeeksChalange.pdb
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\obj\Debug\CodeWarsWeeksChallenge.csprojAssemblyReference.cache
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\obj\Debug\CodeWarsWeeksChallenge.csproj.CoreCompileInputs.cache
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\obj\Debug\CodeWarsWeeksChalange.exe
-E:\ELI\forFun\CodeWarsWeeksChalange\CodeWarsWeeksChalange\obj\Debug\CodeWarsWeeksChalange.pdb
