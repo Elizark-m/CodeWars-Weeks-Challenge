@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,11 +56,14 @@ namespace CodeWarsWeeksChallenge
 
                 for (int i = 0; i < _answerCount; i++)
                 {
+                    // генерация правильных ответов
                     _rightAnswers[i] = "" + (random.NextDouble() * 1000);
+                    
+                    // генерация ответов учеников по принципу: пустой ответ в 30%, иначе с 70% шансом ответить правильно, в другом случае ответить случайно
                     _studentAnswers[i] = (random.NextDouble() < 0.3) ? ("") : ((random.NextDouble() > 0.7) ? (_rightAnswers[i]) : ("" + random.NextDouble() * 1000));
                 }
 
-                //
+                // вывод правильных ответов и ответов учеников
                 string consoleString = "";
                 foreach (string answer in _rightAnswers)
                 {
@@ -74,7 +77,7 @@ namespace CodeWarsWeeksChallenge
                 }
                 Console.WriteLine(consoleString + "\n===========");
 
-                //
+                // подсчет количества очков
                 int score = CheckAnswer(_rightAnswers, _studentAnswers);
                 Console.WriteLine("Оценка/количество очков равно " + score);
             } 
@@ -101,4 +104,3 @@ namespace CodeWarsWeeksChallenge
         }
     }
 }
-
