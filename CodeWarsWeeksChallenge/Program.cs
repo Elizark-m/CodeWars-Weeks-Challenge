@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,20 +33,20 @@ namespace CodeWarsWeeksChallenge
 
             while (flag)
             {
-                //
+                // отрисовка вариантов заданий
                 for (int i = 0; i < _tasks.Count(); i++)
                 {
                     Console.WriteLine($"{i} : { _tasks[i].name } : \n\"{ _tasks[i].discription }\";");
                 }
 
-                //
+                // выбор задания
                 int choice = Int32.Parse(Console.ReadLine());
                 if (choice < 0) break;
 
-                //
                 bool resetflag;
                 do
                 {
+                    // инициализация задачи
                     resetflag = _tasks[choice].Active();
                 } while (resetflag);
             }
